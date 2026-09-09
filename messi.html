@@ -1,0 +1,244 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>社長の時間をつくる会社（メッシ向け）</title>
+<style>
+:root{
+  --bg:#f7f5f0;--surface:#ffffff;--ink:#1d1b17;--muted:#6b665c;--line:#e4dfd4;
+  --accent:#b5541c;--accent-soft:#f6e3d6;--ok:#2f6f4e;--ok-soft:#dff0e6;--warn:#8a5a00;--warn-soft:#fbeccc;
+  --chip:#efe9dd;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15140f;--surface:#1f1d17;--ink:#ece7dc;--muted:#a49d8f;--line:#37342b;
+    --accent:#e0803f;--accent-soft:#3a2416;--ok:#7fcba0;--ok-soft:#1d3327;--warn:#e6b85c;--warn-soft:#3a2f12;
+    --chip:#2b2820;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15140f;--surface:#1f1d17;--ink:#ece7dc;--muted:#a49d8f;--line:#37342b;
+  --accent:#e0803f;--accent-soft:#3a2416;--ok:#7fcba0;--ok-soft:#1d3327;--warn:#e6b85c;--warn-soft:#3a2f12;
+  --chip:#2b2820;
+}
+body{background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",system-ui,sans-serif;line-height:1.75;font-size:15px}
+.wrap{max-width:900px;margin:0 auto;padding:32px 20px 80px}
+header.hero{padding:28px 0 18px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.kicker{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:700;text-transform:uppercase}
+h1{font-size:30px;line-height:1.3;margin:6px 0 10px;font-weight:800}
+.lead{font-size:16px;color:var(--muted);margin:0 0 14px}
+.meta{font-size:12px;color:var(--muted)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+nav.toc a{font-size:12px;padding:5px 10px;border-radius:999px;background:var(--chip);color:var(--ink);text-decoration:none;border:1px solid var(--line)}
+nav.toc a:hover{border-color:var(--accent)}
+section{margin:44px 0}
+h2{font-size:21px;margin:0 0 14px;padding-left:12px;border-left:4px solid var(--accent);line-height:1.3}
+h3{font-size:16px;margin:22px 0 8px}
+p{margin:8px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.card h4{margin:0 0 6px;font-size:15px}
+.card .sub{font-size:12px;color:var(--muted);margin-bottom:8px}
+.card ul{margin:6px 0 0;padding-left:18px}
+.card li{margin:3px 0}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:700;margin-left:6px;vertical-align:middle}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--chip);font-weight:700;font-size:12.5px}
+tr:last-child td{border-bottom:none}
+.timeline{position:relative;padding-left:26px;border-left:2px solid var(--line);margin-left:8px}
+.tl{position:relative;margin:0 0 26px}
+.tl::before{content:"";position:absolute;left:-33px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.tl .when{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+.tl h4{margin:2px 0 6px;font-size:16px}
+.tl .goal{font-size:13px;background:var(--ok-soft);color:var(--ok);padding:8px 12px;border-radius:8px;margin-top:8px}
+blockquote{margin:10px 0;padding:10px 14px;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 8px 8px 0;font-size:14px}
+blockquote cite{display:block;font-size:11.5px;color:var(--muted);font-style:normal;margin-top:4px}
+.callout{background:var(--warn-soft);border:1px solid var(--warn);border-radius:12px;padding:14px 18px;margin:14px 0}
+.callout strong{color:var(--warn)}
+.check{list-style:none;padding:0;margin:0}
+.check li{padding:6px 0 6px 28px;position:relative;border-bottom:1px dashed var(--line)}
+.check li::before{content:"";position:absolute;left:4px;top:11px;width:14px;height:14px;border:2px solid var(--muted);border-radius:4px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;padding:8px 0 8px 36px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:8px;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.small{font-size:12.5px;color:var(--muted)}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi .card{text-align:center}
+.kpi .num{font-size:24px;font-weight:800;color:var(--accent)}
+.kpi .lbl{font-size:12px;color:var(--muted)}
+footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+@media (max-width:600px){h1{font-size:24px}.wrap{padding:20px 14px 60px}}
+</style></head><body>
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">事業構想書 v0.1 · メッシ向け · 2026-09-10</div>
+  <h1>社長の時間をつくる会社</h1>
+  <p class="lead">中小企業の社長の「めんどくさい」を聞いて引き受け、時間を返す。裏側はAIで作る。表看板にAIは出さない。</p>
+  <div class="meta">窪山 → メッシ ／ 8/31 シガイエで話した内容を軸に、ひびきとの3月からの話を合わせて整理したもの。数字はすべて仮。LINEで送った5つの確認と合わせて読んでほしい</div>
+  <nav class="toc"><a href="#summary">一枚で</a><a href="#story">物語</a><a href="#roles">役割</a><a href="#model">事業モデル</a><a href="#brand">看板</a><a href="#setup">設立</a><a href="#numbers">数字</a><a href="#risk">リスク</a><a href="#next">30日</a><a href="#ask">お願い</a></nav>
+</header>
+
+<section id="summary">
+  <h2>一枚で分かる</h2>
+  <div class="tablewrap"><table>
+    <tr><th style="width:130px">何をする会社か</th><td>中小企業の社長の「めんどくさい」を聞いて引き受け、時間を返す会社。裏側はAIで作る</td></tr>
+    <tr><th>誰に</th><td>まず大阪・滋賀の中小企業。町の社長</td></tr>
+    <tr><th>誰が</th><td>窪山（作る・代表）／ メッシ（悩みを聞いてくる・つなぐ）／ ひびき（売る・アテンド）</td></tr>
+    <tr><th>どう売るか</th><td>御用聞き → 小さく作って見せる（無料〜低額）→ 翌月から月額の管理料 → 大型案件</td></tr>
+    <tr><th>表看板</th><td>「業務改善・事務代行」の会社。<strong>AIは出さない</strong>（「AIやりますほど怪しいものはない」— メッシ）</td></tr>
+    <tr><th>形態</th><td>株式会社。窪山が設立し初期リスクを負う。仲間には株で入ってもらう</td></tr>
+    <tr><th>いつ</th><td>2026年9〜10月に登記。年内に「遊びの1件」と無料試作3社。2027年に月額化</td></tr>
+    <tr><th>目標（仮）</th><td>1年目 約1,000万 → 2年目 約4,000万 → 3年目 1億。1件300〜500万のサービスを持つ</td></tr>
+    <tr><th>社会への価値</th><td>社長の時間を返し、人が健康に動ける時間を増やす。AIの恩恵が届いていない地方の小さな会社に、AIという言葉を使わずに届ける</td></tr>
+  </table></div>
+</section>
+<section id="story">
+  <h2>物語 — 箱を作ってから、社会に貢献する企業になるまで</h2>
+  <div class="timeline">
+    <div class="tl">
+      <div class="when">第0章 · 2026年3〜8月（済んでいること）</div>
+      <h4>きっかけ</h4>
+      <p>3月、窪山はひびきに「AIをマスターしたら別の会社を作る」と言った。このとき既に「社長の時間を増やす」という言葉が出ている。4月、コンラッド大阪で「AIで作る会社を、メッシと一緒に持ったら動く」。メッシの役所勤務の信用とネットワークがB2Bの入口になると見えた。</p>
+      <p>4月末のロンドン。ホテルのラウンジで、ひびきの刺繍業の困りごとをその場でAIに解かせた夜に、二人の役割が決まった。</p>
+      <blockquote>「響きは売ってきて、俺が作る」「初めと最後だけ響きがあって、間は全部俺」「一回遊びでやって、行き出したらその会社を作ったらいい」<cite>窪山 → ひびき · 2026-04-29 ロンドン</cite></blockquote>
+      <p>6月、「俺と響の会社を一個作ろうか」→ ひびき「箱は大切。やりましょう」。6月11日にはひびきから「補助金申請書類のAI代行」という最初の具体案。</p>
+      <p>8月31日、シガイエでメッシと話した内容がこの構想の背骨になっている。</p>
+      <blockquote>「最初は足を動かして会社の人の悩み事を聞いてきたらいい」「AIの会社という体じゃなく、裏でAIを使っているだけで表向きが違う方がアプローチしやすい」「その会社に必要なものが何かを聞いてくる力が一番重要」<cite>メッシ · 2026-08-31</cite></blockquote>
+    </div>
+    <div class="tl">
+      <div class="when">第1章 · 2026年9〜10月</div>
+      <h4>箱を作る</h4>
+      <p>窪山が定款を書き、登記する。ひびきは営業として名刺を持つ。メッシは兼業ルールに合う形（株主か紹介役）で関わる。社名は業務の言葉で付け、AIという単語は看板に入れない。法人口座と法人カードを作り、経費を会社に寄せる。</p>
+      <div class="goal">終わりの状態: 登記簿がある。名刺がある。会社案内が1枚ある</div>
+    </div>
+    <div class="tl">
+      <div class="when">第2章 · 2026年10〜12月</div>
+      <h4>遊びで1件、無料で3社</h4>
+      <p>「今すぐ金にするのが一番最悪」。最初の1件は小さな案件を相場の3倍で受け、窪山がAIで作り、修正指示をスキルとして保存する。並行して、メッシとひびきが紹介できる社長を3人選び「困ってることないですか」と聞きに行く。出てきた「めんどくさい」を窪山が1〜2週間で形にして無料で渡す。</p>
+      <div class="goal">終わりの状態: 有料1件、無料試作3件。「これができます」と言える実物が4つ</div>
+    </div>
+    <div class="tl">
+      <div class="when">第3章 · 2027年1〜6月</div>
+      <h4>月額に変える</h4>
+      <p>無料で渡したものの運用・改修を「管理料」に変える。月額5万円から。営業は「知り合いの会社を紹介しましょうか」と一つずらして入る型に統一。メッシは現場感覚で「刺さる／刺さらない」を判定し、商品の形を寄せる。この章で<strong>業種を一つに絞る</strong>。</p>
+      <div class="goal">終わりの状態: 月額契約5社。構築案件の単価30〜100万。事例が3つ</div>
+    </div>
+    <div class="tl">
+      <div class="when">第4章 · 2027年7〜12月</div>
+      <h4>チームにする</h4>
+      <p>窪山一人が作り手である限り上限がある。セキュリティが分かるエンジニアと、本当にコードを書ける人を迎える。ひびきがPCを持ち、簡単な納品を自分で回す。契約書・秘密保持・賠償保険を入れる。</p>
+      <div class="goal">終わりの状態: 3人で作れる。月額15社。1件300万の構築案件が出る</div>
+    </div>
+    <div class="tl">
+      <div class="when">第5章 · 2028年〜</div>
+      <h4>看板を増やす、外へ出る</h4>
+      <p>業種ごとにサービス名を分け、同じ裏側で回す。海外案件に英語で発信する。仲間や生徒に仕事を渡し、「サラリーマンにならない生き方」を実装する。</p>
+      <div class="goal">社長の時間を返して人が健康に動ける時間を増やす。地方の小さな会社にAIの恩恵を「AI」と言わずに届ける</div>
+    </div>
+  </div>
+</section>
+<section id="roles">
+  <h2>三人の役割</h2>
+  <div class="grid">
+    <div class="card"><h4>窪山 <span class="tag">代表・作る</span></h4><ul><li>定款・登記・口座・会計。初期の資金リスクを負う</li><li>制作・自動化・ディレクション</li><li>AI環境とセキュリティ設計</li></ul></div>
+    <div class="card"><h4>メッシ <span class="tag">悩みを聞いてくる・つなぐ</span></h4><ul><li>「足を動かして会社の悩み事を聞いてくる」</li><li>B2Bのネットワークと信用</li><li>現場フィットの判定（刺さる／刺さらない）</li><li>関わり方は役員ではなく株で持つ形を軸に。ルール確認中</li></ul></div>
+    <div class="card"><h4>ひびき <span class="tag ok">売る・アテンド</span></h4><ul><li>営業・案件発掘・アポ。ロンドン以来「響きは売ってきて、俺が作る」</li><li>刺繍業・カポエイラ教室と並走</li></ul></div>
+    <div class="card"><h4>（未定）エンジニア2名</h4><ul><li>セキュリティが分かる人、本当にコードを書ける人。「3人いたらほぼ全部作れる」</li></ul></div>
+  </div>
+</section>
+<section id="model">
+  <h2>事業モデル</h2>
+  <h3>サービスの階段（★は会話に出た数字。他は仮）</h3>
+  <div class="tablewrap"><table>
+    <tr><th>段</th><th>名前（仮）</th><th>内容</th><th>価格</th></tr>
+    <tr><td>0</td><td>御用聞き</td><td>訪問して困りごとを聞く（録音してAIで整理）</td><td>無料</td></tr>
+    <tr><td>1</td><td>お試し納品</td><td>一番めんどくさい業務を一つ、1〜2週間で形にする</td><td>無料〜5万円</td></tr>
+    <tr><td>2</td><td>月額の管理</td><td>運用・改修・相談窓口。★「翌月から管理料」</td><td>月5〜15万円／社</td></tr>
+    <tr><td>3</td><td>構築案件</td><td>業務自動化・書類生成・顧客対応ボット。★「10万〜100万」「相場の3倍」</td><td>30〜100万円／件</td></tr>
+    <tr><td>4</td><td>大型</td><td>会社まるごとの業務設計。★「1案件300万」「1軒500万」</td><td>300〜500万円</td></tr>
+  </table></div>
+  <h3>納品物（窪山が既に自分の事業で動かしているもの）</h3>
+  <div class="tablewrap"><table>
+    <tr><th>納品物</th><th>元になっている実績</th></tr>
+    <tr><td>予約・申込・名簿・請求の自動化</td><td>会場予約の完全自動化、150人規模の出席システム、入会手続き自動化、QRチェックイン</td></tr>
+    <tr><td>個別連絡の自動生成（LINE・メール）</td><td>個別LINE文面の出し分け。相手はAIと気づかず即レス</td></tr>
+    <tr><td>社内Q&amp;Aボット</td><td>入院Q&amp;Aボット（GPT+LINE）</td></tr>
+    <tr><td>定型文書・申請書類の作成</td><td>補助金申請書類の代行案。保険請求文書</td></tr>
+    <tr><td>月次の案内・社内報・会社案内</td><td>会議記録から月次案内を自動生成。会社案内・社内紙の表紙デザイン</td></tr>
+    <tr><td>営業リスト作成</td><td>100エージェント並列でWebサイトを収集しリスト化</td></tr>
+    <tr><td>制作データの変換</td><td>刺繍データ（PES/DST）、Tシャツのシルクスクリーンデータ</td></tr>
+    <tr><td>業務の言語化・マニュアル化</td><td>音声→Markdown→手順書</td></tr>
+  </table></div>
+  <h3>営業の型</h3>
+  <ol class="steps">
+    <li>「困ってることないですか」と聞く。AIの話はしない</li>
+    <li>「めんどくさい」と言われた瞬間に「それ、できますよ。やらせてもらえませんか」</li>
+    <li>小さく作って持っていく（無料）</li>
+    <li>跳ね返りの電話が来たら「来月から管理料で」</li>
+    <li>紹介は「知り合いの会社を紹介しましょうか」と一つずらして入る</li>
+    <li>修正指示は全部スキル（手順書）として貯め、次の客に再利用</li>
+    <li>「ついでにできること」を増やす。飯や付き合いの場で聞いた話が入口</li>
+  </ol>
+  <p class="small">顧客は「刺繍をやってほしい人ではなく、刺繍屋さん」。つまり事業者。まず身近な人脈、次に業種を一つに絞る、将来は海外案件。</p>
+</section>
+<section id="brand">
+  <h2>看板と社名</h2>
+  <p>原則: AIという言葉を看板に出さない。業務の言葉で語る。</p>
+  <div class="grid">
+    <div class="card"><h4>「時間」を軸に</h4><p class="small">例: じかん設計 / タイムメイカーズ</p></div>
+    <div class="card"><h4>「裏方・番頭」を軸に</h4><p class="small">例: 番頭カンパニー / 裏方株式会社</p></div>
+    <div class="card"><h4>「町の社長を助ける」を軸に</h4><p class="small">例: まちの事務局 / 社長室代行</p></div>
+    <div class="card"><h4>抽象名＋業種別サービス名</h4><p class="small">業種ごとの「複数看板」に合う二段構え</p></div>
+  </div>
+  <p class="small">社名案があれば教えてほしい。決めるのは9月中旬。</p>
+</section>
+<section id="setup">
+  <h2>会社設立の段取り（窪山が進める）</h2>
+  <ol class="steps">
+    <li>社名・本店・資本金・事業目的・決算期を決める（9月中旬）</li>
+    <li>電子定款を作って公証役場で認証（3〜5万円）</li>
+    <li>資本金を払い込み、法務局に登記申請（登録免許税15万円〜）。この日が設立日</li>
+    <li>登記完了後に税務署・府税・市税・年金事務所へ届出、法人口座・法人カード・会計ソフト</li>
+    <li>名刺と会社案内1枚。契約書のひな形</li>
+  </ol>
+  <p class="small">設立費用は合計20〜25万円ほど。維持費は年10万円弱。金額と期限は公式情報で要確認。</p>
+</section>
+<section id="numbers">
+  <h2>数字の仮置き <span class="tag warn">すべて仮定</span></h2>
+  <div class="tablewrap"><table>
+    <tr><th>期</th><th>月額契約</th><th>構築案件</th><th>売上（年）</th></tr>
+    <tr><td>1年目（2026-10〜2027-09）</td><td>10社 × 5万 = 月50万（後半から）</td><td>5件 × 50万</td><td>約 800〜1,000万</td></tr>
+    <tr><td>2年目</td><td>30社 × 8万 = 月240万</td><td>10件 × 80万 ＋ 大型1件 300万</td><td>約 4,000万</td></tr>
+    <tr><td>3年目</td><td>60社 × 10万 = 月600万</td><td>大型 5件 × 400万</td><td>約 1億</td></tr>
+  </table></div>
+  <p class="small">固定費はAI利用料と会計くらいなので損益分岐は低い。「トントンになるやつをまず作る」。1年目は月額5社を目標にし、大型は追わない。</p>
+</section>
+<section id="risk"><h2>リスクと対策</h2><div class="tablewrap"><table><tr><th>リスク</th><th>対策</th></tr><tr><td>窪山一人に制作が集中する</td><td>スキル化で再現性を上げる。2027年後半にエンジニア2名。ひびきにPC</td></tr><tr><td>AIの障害やクレジット枯渇で止まる</td><td>複数ベンダー契約、会社名義、上限アラート</td></tr><tr><td>顧客データの漏洩・事故</td><td>秘密保持契約、置き場を限定、ログ、賠償保険。初期は個人情報を極力預からない</td></tr><tr><td>公務員の兼業ルールとの整合</td><td>メッシは役員に入れない。本業で担当する企業は対象外。書面化</td></tr><tr><td>ターゲットが「余白ばかり」</td><td>無料試作3社で反応を見て、2027年前半に業種を一つに絞る</td></tr><tr><td>相場の3倍が通らない</td><td>価格は「時間が戻る」で語る。比較対象を人件費にする</td></tr><tr><td>受注への心理的ハードル</td><td>最初の1件は窪山が同席。「受けてから学ぶ」</td></tr><tr><td>「今すぐ金にする」焦り</td><td>1年目は月額5社を目標。大型は追わない</td></tr></table></div></section>
+<section id="next">
+  <h2>直近30日</h2>
+  <div class="tablewrap"><table>
+    <tr><th>期日</th><th>誰</th><th>何を</th></tr>
+    <tr><td>9/14</td><td>窪山</td><td>社名候補3つ、資本金・決算期を決める</td></tr>
+    <tr><td>9/16</td><td>窪山</td><td>定款ドラフト。公証役場の予約</td></tr>
+    <tr><td>9/19</td><td>ひびき</td><td>「遊びの1件」候補を3つ持ってくる（クラウドワークス or 知人）</td></tr>
+    <tr><td>9/19</td><td>メッシ</td><td>兼業ルールの一次回答</td></tr>
+    <tr><td>9/24</td><td>窪山</td><td>電子定款認証 → 資本金払込</td></tr>
+    <tr><td>9/26〜30</td><td>窪山</td><td>登記申請（設立日）</td></tr>
+    <tr><td>10/10</td><td>窪山</td><td>登記完了 → 届出、法人口座、名刺、会社案内1枚</td></tr>
+    <tr><td>10/15</td><td>三人</td><td>無料試作の3社を決める。最初の訪問</td></tr>
+  </table></div>
+</section>
+<section id="ask">
+  <h2>メッシにお願いしたいこと</h2>
+  <ol class="steps">
+    <li><strong>LINEで送った5つの確認</strong>（服務規程・兼業許可・利益相反・退職の意思・降雨量ツールの扱い）。9/19ごろに一次回答があると定款の設計が進む</li>
+    <li><strong>「困ってる社長」を3人</strong>。役所の立場は使わず、飯や付き合いの場で「ついでに」聞こえてきた話でいい。本業で担当する企業は対象外</li>
+    <li><strong>降雨量→SNS自動投稿</strong>は、個人のPC内ツールとしてなら9月中に作って見せられる。公式運用にしたいなら役所側の手続きが要るので、それは別ルートで</li>
+    <li>会社との関わり方は<strong>役員ではなく、株で持つ形</strong>を軸に考えている。比率と時期は確認結果が出てから二人で決める</li>
+    <li>社名案があれば投げてほしい。「労務管理」など業務の言葉で入る看板のアイデアも</li>
+  </ol>
+  <p class="small">シガイエで言ってくれた「悩み事を聞いてくる」「AIの看板は出さない」「必要なものを聞いてくる力」がそのまま会社の型になっている。</p>
+</section>
+<footer>窪山作成 2026-09-10。手続き・金額は一般的な内容で要確認。持分・報酬の話は兼業の確認結果が出てから直接決める</footer>
+</div>
+</body></html>
