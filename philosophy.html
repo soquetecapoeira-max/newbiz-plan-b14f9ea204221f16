@@ -1,0 +1,127 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>クラフティの思想</title><style>
+:root{
+  --bg:#f7f5f0;--surface:#ffffff;--ink:#1d1b17;--muted:#6b665c;--line:#e4dfd4;
+  --accent:#b5541c;--accent-soft:#f6e3d6;--ok:#2f6f4e;--ok-soft:#dff0e6;--warn:#8a5a00;--warn-soft:#fbeccc;
+  --chip:#efe9dd;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15140f;--surface:#1f1d17;--ink:#ece7dc;--muted:#a49d8f;--line:#37342b;
+    --accent:#e0803f;--accent-soft:#3a2416;--ok:#7fcba0;--ok-soft:#1d3327;--warn:#e6b85c;--warn-soft:#3a2f12;
+    --chip:#2b2820;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15140f;--surface:#1f1d17;--ink:#ece7dc;--muted:#a49d8f;--line:#37342b;
+  --accent:#e0803f;--accent-soft:#3a2416;--ok:#7fcba0;--ok-soft:#1d3327;--warn:#e6b85c;--warn-soft:#3a2f12;
+  --chip:#2b2820;
+}
+body{background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",system-ui,sans-serif;line-height:1.75;font-size:15px}
+.wrap{max-width:900px;margin:0 auto;padding:32px 20px 80px}
+header.hero{padding:28px 0 18px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.kicker{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:700;text-transform:uppercase}
+h1{font-size:30px;line-height:1.3;margin:6px 0 10px;font-weight:800}
+.lead{font-size:16px;color:var(--muted);margin:0 0 14px}
+.meta{font-size:12px;color:var(--muted)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+nav.toc a{font-size:12px;padding:5px 10px;border-radius:999px;background:var(--chip);color:var(--ink);text-decoration:none;border:1px solid var(--line)}
+nav.toc a:hover{border-color:var(--accent)}
+section{margin:44px 0}
+h2{font-size:21px;margin:0 0 14px;padding-left:12px;border-left:4px solid var(--accent);line-height:1.3}
+h3{font-size:16px;margin:22px 0 8px}
+p{margin:8px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.card h4{margin:0 0 6px;font-size:15px}
+.card .sub{font-size:12px;color:var(--muted);margin-bottom:8px}
+.card ul{margin:6px 0 0;padding-left:18px}
+.card li{margin:3px 0}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:700;margin-left:6px;vertical-align:middle}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--chip);font-weight:700;font-size:12.5px}
+tr:last-child td{border-bottom:none}
+.timeline{position:relative;padding-left:26px;border-left:2px solid var(--line);margin-left:8px}
+.tl{position:relative;margin:0 0 26px}
+.tl::before{content:"";position:absolute;left:-33px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.tl .when{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+.tl h4{margin:2px 0 6px;font-size:16px}
+.tl .goal{font-size:13px;background:var(--ok-soft);color:var(--ok);padding:8px 12px;border-radius:8px;margin-top:8px}
+blockquote{margin:10px 0;padding:10px 14px;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 8px 8px 0;font-size:14px}
+blockquote cite{display:block;font-size:11.5px;color:var(--muted);font-style:normal;margin-top:4px}
+.callout{background:var(--warn-soft);border:1px solid var(--warn);border-radius:12px;padding:14px 18px;margin:14px 0}
+.callout strong{color:var(--warn)}
+.check{list-style:none;padding:0;margin:0}
+.check li{padding:6px 0 6px 28px;position:relative;border-bottom:1px dashed var(--line)}
+.check li::before{content:"";position:absolute;left:4px;top:11px;width:14px;height:14px;border:2px solid var(--muted);border-radius:4px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;padding:8px 0 8px 36px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:8px;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.small{font-size:12.5px;color:var(--muted)}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi .card{text-align:center}
+.kpi .num{font-size:24px;font-weight:800;color:var(--accent)}
+.kpi .lbl{font-size:12px;color:var(--muted)}
+footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+@media (max-width:600px){h1{font-size:24px}.wrap{padding:20px 14px 60px}}
+h1{font-size:26px} h2{margin-top:36px} h3{color:var(--muted)} ul,ol{padding-left:22px} li{margin:4px 0} hr{border:0;border-top:1px solid var(--line);margin:28px 0} code{font-size:12px;background:var(--chip);padding:1px 5px;border-radius:4px}</style></head><body><div class="wrap"><h1>クラフティの思想</h1>
+<p>2026-10-04　窪山 → メッシ・ひびき</p>
+<p>会社の一番下に置く考え方。何をやるか迷ったとき、受けるか断るか迷ったときは、ここに戻る。</p>
+<hr>
+<h2>なぜこの会社をやるのか</h2>
+<p>俺は「好きな事をして生きる」という学生時代の夢を、カポエイラで叶えた。そこで気づいたのは、健康な身体がないと好きな事すら続けられないこと。そして、自分の身体と心に向き合って学んだことが、生徒やその家族の暮らしを明るくしていたこと。</p>
+<p>それ以来、「好きな事で生きる」から「人に貢献して生きる」に心が移った。</p>
+<p>カポエイラは <strong>身体</strong> から人を元気にしてきた。クラフティは <strong>選べる時間</strong> から人を元気にする。健康は「できる」の土台、選べる時間は「選ぶ」の土台。入口が違うだけで、やりたいことは同じ。関わった人が、健康で豊かになること。</p>
+<p>時間の量が幸せを決めるのではない。俺は今ほとんど時間がないが、その全部を自分で選んだミッションに使っているから幸せだ。社長の「めんどくさい」が奪っているのも、時間の量ではなく選択権。やりたくないのに、やらざるを得ない時間。クラフティが返すのは、その選択権。</p>
+<p>ただし、相手の選べる時間を増やすために俺たちが選べない時間を背負うなら、それは幸せを移し替えているだけで、増やしてはいない。俺たちが疲弊せずに回り、相手も豊かになる。その両方が成り立つ形だけを作る。</p>
+<hr>
+<h2>Purpose（存在する理由）</h2>
+<p><strong>人々の幸せに貢献する。関わった人が、健康で豊かになる。</strong></p>
+<h2>Mission（やること）</h2>
+<p><strong>人の「選べる時間」を増やす。自分たちの選べる時間も削らずに。</strong> 自分で選んでいない「めんどくさい」を仕組みで引き受けて、本人が使い道を決められる時間を返す。何に使うかは本人が決める。会社は決めない。人が手作業で肩代わりするのではなく、一度作れば回り続ける仕組みにする。だから俺たちの時間も増える。</p>
+<h2>Vision（目指す未来）</h2>
+<p>一人ひとりが豊かさを実現し、その幸せが周囲へ広がり、地域が明るく前向きになる。 みんなが大切な人の夢を応援し合える未来。</p>
+<p>「豊か」とは、お金だけではない。経済的な安定、人とのつながり、健康、時間の自由、学びと成長、心の平和、文化、環境、行動の自由、そして社会への貢献。これらが調和した状態。</p>
+<hr>
+<h2>Values（動き方）</h2>
+<ol class="steps">
+<li><strong>テイクからギブへ。</strong> 先に役に立つ。儲けるために取りに行かない。</li>
+<li><strong>減点ではなく加点。</strong> できていないことを責めず、できることを増やす。</li>
+<li><strong>小さく試して、喜ばれるものを見つける。</strong> 大きく構えない。急いで金にしない。</li>
+<li><strong>感謝を集め、見える形で残す。</strong> 喜びの声を記録し、次の人に見せる。</li>
+<li><strong>心身の健康が先。</strong> 自分たちも客も、無理をして成り立つ仕事はしない。誰かの犠牲で誰かが幸せになる形は作らない。</li>
+<li><strong>仕組みで返す。人の時間で肩代わりしない。</strong> 一度作れば回り続けるものを作る。自分たちの選べる時間も増える形だけが、長く続く。</li>
+<li><strong>仲間が豊かになる。</strong> 一緒に動く人の成長と生活が先に良くなる。</li>
+<li><strong>楽しくやる。</strong> 遊びの余白を残す。</li>
+</ol>
+<hr>
+<h2>貢献の条件（仕事を受けるか決める5つの問い）</h2>
+<p>受ける前に、5つとも「はい」と言えるかを確かめる。1つでも「いいえ」なら、儲かっても受けない。</p>
+<div class="tablewrap"><table>
+<tr><th></th><th>問い</th></tr>
+<tr><td>1</td><td><strong>相手の選べる時間と健康が増えるか。</strong> この仕事で、相手は自分で選んでいない時間から解放され、元気になるか。人を疲れさせる・不健康にする仕事ではないか。相手が自分でできるようになる方向で作れるか（依存させて稼がない）</td></tr>
+<tr><td>2</td><td><strong>自分たちも豊かになるか。</strong> 俺たち自身の選べる時間と健康を削って成り立つ仕事ではないか。仕組みにできて、続けるほど楽になるか。ひびき・メッシ・手伝う人の成長と生活が良くなるか</td></tr>
+<tr><td>3</td><td><strong>感謝が返ってくる形になっているか。</strong> 喜ばれ、その感謝がお金と声で返ってくるか。タダ働きで終わらないか</td></tr>
+<tr><td>4</td><td><strong>奪わない・壊さないか。</strong> 既存の業者や雇われている人から仕事を取り上げていないか。生み出しているか</td></tr>
+<tr><td>5</td><td><strong>クリーンか。</strong> 全部合法か。隠さないと成り立たない部分がないか。グレーに寄っていないか</td></tr>
+</table></div>
+<hr>
+<h2>測るもの</h2>
+<ul>
+<li>相手の時間のうち「自分で選んでいない時間」の割合が、どれだけ減ったか（時間の量ではなく割合）</li>
+<li>自分たちの「選んでいない時間」が増えていないこと</li>
+<li>感謝の声の数（記録して残す）</li>
+<li>感謝の金額（売上）</li>
+</ul>
+<p>ゴールは「100億円分の感謝を集める」。</p>
+<hr>
+<h2>計画への当てはめ</h2>
+<ul>
+<li><strong>無料試作</strong> は入口として続ける。ただし必ず感謝の声（感想・ビフォーアフター）をもらう。お金の代わりに声を受け取る。2件目からは有料。</li>
+<li><strong>価格</strong> は「相手に返った選べる時間」を根拠に決める。「相場を知らない人に高く売る」とは言わない。</li>
+<li><strong>対象</strong> は社長だけではない。社長の選べる時間が増えれば、スタッフと家族にも広がる。</li>
+<li><strong>AI</strong> は裏方の道具。思想の言葉にAIは出てこないし、看板にも出さない。</li>
+</ul><footer>窪山 2026-10-04。何をやるか迷ったときは、ここに戻る。</footer></div></body></html>
